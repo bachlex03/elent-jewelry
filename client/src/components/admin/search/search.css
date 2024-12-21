@@ -1,0 +1,13 @@
+.admin-layout .card-search input {
+    background-color: var(--color-input);
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    width: 200px;
+    font-size: 14px;
+    transition: all 0.15s ease;
+}
+.admin-layout .card-search input:focus {
+    background-color: var(--color-input-focus);
+}

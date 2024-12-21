@@ -1,0 +1,44 @@
+/* ADMIN SIDEBAR */
+.admin-layout .sidebar {
+    background-color: var(--color-bg-primary);
+    width: 265px;
+    min-width: 265px;
+}
+
+.admin-layout .info a {
+    background-color: var(--color-bg-quaternary);
+    color: #fff !important;
+    padding: 16px 25px;
+    height: 70px;
+    box-sizing: border-box;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.admin-layout .toolbar {
+    border-top: 1px dashed #1f212a;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.admin-layout .toolbar a:visited,
+a:link {
+    text-decoration: none;
+    color: var(--color-text-primary) !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.15s ease;
+}
+
+.admin-layout .toolbar a.active {
+    background-color: #1b84ff;
+    color: #fff !important;
+    font-weight: bold;
+}
+
+.admin-layout .toolbar a:hover {
+    color: #fff;
+    font-weight: bold;
+}
