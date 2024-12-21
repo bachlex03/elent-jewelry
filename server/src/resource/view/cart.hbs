@@ -10,7 +10,7 @@
 
 <body>
     <h1>Giỏ hàng của bạn</h1>
-    
+
     <script>
         document.addEventListener("DOMContentLoaded", async function () {
             // Lấy các tham số từ URL
@@ -32,7 +32,7 @@
             // Kiểm tra các tham số cần thiết
             if (vnp_TxnRef && vnp_ResponseCode && vnp_SecureHash && vnp_Amount) {
                 try {
-                    const response = await axios.get(`http://localhost:3000/api/vnpay/vnpay_ipn`, {
+                    const response = await axios.get(`/api/vnpay/vnpay_ipn`, {
                         params: {
                             vnp_Amount,
                             vnp_BankCode,
@@ -48,7 +48,7 @@
                             vnp_SecureHash
                         }
                     });
-                    
+
                     // Hiển thị kết quả phản hồi
                     document.getElementById("result").innerText = JSON.stringify(response.data);
                 } catch (error) {
@@ -60,7 +60,7 @@
             }
         });
     </script>
-    
+
     <div id="result"></div>
 </body>
 
