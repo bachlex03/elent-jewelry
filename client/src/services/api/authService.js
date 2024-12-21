@@ -1,6 +1,6 @@
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
-const API_URL = "http://localhost:3000/api"; // Đặt URL của API BE tại đây
+const API_URL = "/api"; // Đặt URL của API BE tại đây
 
 export const verifyOTP = async (otpCode, q) => {
   try {
@@ -8,7 +8,7 @@ export const verifyOTP = async (otpCode, q) => {
       `${API_URL}/auth/verify-otp?q=${encodeURIComponent(q)}`,
       {
         otp: otpCode,
-      },
+      }
     );
     return response.data;
   } catch (error) {
@@ -78,7 +78,7 @@ export const sendOTP = async (email) => {
 
 export const forgotPassword = async (
   { otp, newPassword, confirmPassword },
-  q,
+  q
 ) => {
   console.log(otp, newPassword, confirmPassword, q);
 
@@ -90,13 +90,13 @@ export const forgotPassword = async (
         otp,
         newPassword,
         confirmPassword,
-      },
+      }
     );
 
     return response.data; // Return the success message
   } catch (error) {
     throw new Error(
-      error.response?.data?.message || "Đặt lại mật khẩu thất bại",
+      error.response?.data?.message || "Đặt lại mật khẩu thất bại"
     );
   }
 };
