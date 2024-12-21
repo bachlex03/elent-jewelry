@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:3000/api";
+const API_BASE_URL = "/api";
 export const fetchPayment = async ({ emailtoken, items, discount_id }) => {
   try {
     console.log("emailtoken", emailtoken);
@@ -53,7 +53,7 @@ export const retryPayment = async ({ invoiceId }) => {
         params: {
           invoiceId: invoiceId,
         },
-      },
+      }
     );
 
     return {

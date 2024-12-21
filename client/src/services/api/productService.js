@@ -1,10 +1,10 @@
 // productService.js
-const API_BASE_URL = "http://localhost:3000/api"; // Thay đổi URL cho đúng
+const API_BASE_URL = "/api"; // Thay đổi URL cho đúng
 
 export const fetchProducts = async (limit, page) => {
   try {
     const response = await fetch(
-      `${API_BASE_URL}/products/all?limit=${limit}&page=${page}`,
+      `${API_BASE_URL}/products/all?limit=${limit}&page=${page}`
     );
 
     // Kiểm tra phản hồi từ API
@@ -23,7 +23,7 @@ export const fetchProducts = async (limit, page) => {
 export const searchProducts = async (keyword, limit, page) => {
   try {
     const response = await fetch(
-      `${API_BASE_URL}/products/search?keyword=${encodeURIComponent(keyword)}&limit=${limit}&page=${page}`,
+      `${API_BASE_URL}/products/search?keyword=${encodeURIComponent(keyword)}&limit=${limit}&page=${page}`
     );
 
     if (!response.ok) {
@@ -53,7 +53,7 @@ export const getProductDetail = async (id) => {
 export const getSaleProducts = async (limit, page) => {
   try {
     const response = await fetch(
-      `${API_BASE_URL}/products/sales?limit=${limit}&page=${page}`,
+      `${API_BASE_URL}/products/sales?limit=${limit}&page=${page}`
     );
 
     // Kiểm tra phản hồi từ API
@@ -72,12 +72,14 @@ export const getSaleProducts = async (limit, page) => {
 export const getProductbyCategory = async (categoryId, limit, page) => {
   try {
     const response = await fetch(
-      `${API_BASE_URL}/products/category/${categoryId}?limit=${limit}&page=${page}`,
+      `${API_BASE_URL}/products/category/${categoryId}?limit=${limit}&page=${page}`
     );
 
     const data = await response.json();
-    console.log(`${API_BASE_URL}/products/category/${categoryId}?limit=${limit}&page=${page}`);
-    
+    console.log(
+      `${API_BASE_URL}/products/category/${categoryId}?limit=${limit}&page=${page}`
+    );
+
     return data;
   } catch (error) {
     console.error(error);
@@ -101,13 +103,13 @@ export const filterProducts = async (filters, page = 1, limit = 10) => {
     // Thêm các mảng lọc
     if (filters.priceRanges?.length > 0) {
       filters.priceRanges.forEach((price) =>
-        params.append("priceRanges", price),
+        params.append("priceRanges", price)
       );
     }
 
     if (filters.materials?.length > 0) {
       filters.materials.forEach((material) =>
-        params.append("materials", material),
+        params.append("materials", material)
       );
     }
 
@@ -116,7 +118,7 @@ export const filterProducts = async (filters, page = 1, limit = 10) => {
     }
 
     const response = await fetch(
-      `${API_BASE_URL}/products/filter?${params.toString()}`,
+      `${API_BASE_URL}/products/filter?${params.toString()}`
     );
 
     if (!response.ok) {

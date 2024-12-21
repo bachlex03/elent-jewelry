@@ -1,6 +1,6 @@
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
-const API_URL = "http://localhost:3000/api";
+const API_URL = "/api";
 
 export const getUserProfile = async (email) => {
   try {
@@ -15,7 +15,7 @@ export const changePassword = async (
   email,
   oldPassword,
   newPassword,
-  confirmNewPassword,
+  confirmNewPassword
 ) => {
   try {
     console.log(email);
@@ -28,7 +28,7 @@ export const changePassword = async (
         oldPassword,
         newPassword,
         confirmNewPassword,
-      },
+      }
     );
 
     console.log("Thông báo:", response.data.message);
